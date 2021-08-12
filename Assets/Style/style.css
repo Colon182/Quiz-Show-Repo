@@ -7,4 +7,40 @@ body {
     font-family: sans-serif;
     background-color: blanchedalmond;
     font-size: larger;
+    overflow: hidden;
+    
+}
+
+h2 {
+    text-align: center;
+}
+
+li{
+    list-style-type: upper-alpha;
+
+}
+
+.quiz-box{
+    border-radius: 15px;
+    background-color: lightblue;
+    width: 800px
+}
+
+input {
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+button {
+    background-color: rgb(245, 59, 59);
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 0 0 15px 15px;
+    font-size: larger;
 }
