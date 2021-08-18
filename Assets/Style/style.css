@@ -1,18 +1,56 @@
-body {
-    box-sizing: border-box;
+header {
+    font-size: x-large;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+p {
+    
+}
+
+main{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.quiz-opener {
     align-items: center;
     justify-content: center;
-    height: 100vh;
     font-family: sans-serif;
     background-color: blanchedalmond;
     font-size: larger;
     overflow: hidden;
-    
+    border-radius: 15px;
+    background-color: lightblue;
 }
 
-h2 {
-    text-align: center;
+#startBtn{
+    background-color: rgb(245, 59, 59);
+    border: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 0 0 15px 15px;
+    font-size: larger;
+}
+
+.hide {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background-color: blanchedalmond;
+    font-size: larger;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: lightblue;
+    
 }
 
 li{
@@ -20,7 +58,7 @@ li{
 
 }
 
-.quiz-box{
+.quiz-header{
     border-radius: 15px;
     background-color: lightblue;
     width: 800px
@@ -34,7 +72,7 @@ label {
     cursor: pointer;
 }
 
-button {
+#submit {
     background-color: rgb(245, 59, 59);
     border: none;
     display: block;
@@ -44,3 +82,7 @@ button {
     border-radius: 0 0 15px 15px;
     font-size: larger;
 }
+
+/* .hide {
+    display: none;
+} */

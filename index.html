@@ -9,11 +9,19 @@
 </head>
 <!-- body of quiz questions -->
 <body>
+    <header>
+        <a href="scores.html">High Scores</a>
+        <p>Time: <span id="counter">0</span></p>
+    </header>
     <main class="quiz-box" id="quiz">
-        <section class="quiz-header">
-            <h2 id="question">Question Text</h2>
+        <section class="quiz-opener">
+            <h1></h1>
+            <button id="startBtn">Start Quiz</button>
+        </section>
+        <section class="quiz-header hide">
+            <h2 id="question"></h2>
             <ul>
-                <li>
+                <!-- <li>
                     <input type="radio" id="a" class="answer" name="options">
                     <label for="a" id="option-a">answer</label>
                 </li>
@@ -28,10 +36,11 @@
                 <li>
                     <input type="radio" id="d" class="answer" name="options">
                     <label for="d" id="option-d">answer</label>
-                </li>
+                </li> -->
             </ul>
+            <button id="submit">Submit</button>
         </section>
-        <button id="submit">Submit</button>
+       
     </main>
 
 
