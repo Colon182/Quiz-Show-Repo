@@ -9,6 +9,8 @@ var questionEl = document.getElementById("question");
 var submitBtn = document.getElementById("submit");
 var starBtnEl = document.getElementById("startBtn")
 var counterEl = document.getElementById("counter");
+var openerEL = document.querySelector(".quiz-opener");
+var hideEl = document.querySelector(".hide");
 // variables to control quiz state
 var  questionIndex = 0
 var time = 75
@@ -59,19 +61,25 @@ function startQuiz() {
     // start timer
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
+    openerEL.setAttribute("style", "display:none;");
+    hideEl.removeAttribute("style","display:hide;");
+    loadQuestion;
 }
 starBtnEl.addEventListener("click", startQuiz)
-// create a function for event listener clicking a question
 
-// create end quiz function
-// create function for high scores and store to local storage
-
-// function to select quiz questions and answers 
-function loadQuestion() {
-    var currentQuizData = quizDataObj
+function loadQuestion(index) {
+    startQuiz;
+    var quoteEl = 
     
-    questionEl.innerText = currentQuizData.question
 }
+// create a function for event listener clicking a question
+function nextQuestion() {
+    
+}
+// create end quiz function
+function endQuiz() {}
+// create function for high scores and store to local storage
+function scoreData() {}
+// function to select quiz questions and answers 
 
-loadQuestion()
 
