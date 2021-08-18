@@ -60,31 +60,18 @@ function startQuiz() {
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
 }
-
+starBtnEl.addEventListener("click", startQuiz)
 // create a function for event listener clicking a question
+
 // create end quiz function
 // create function for high scores and store to local storage
 
 // function to select quiz questions and answers 
 function loadQuestion() {
-    deselectAnswer();
-    var currentQuizData = quizDataObj[currentQuiz]
+    var currentQuizData = quizDataObj
     
     questionEl.innerText = currentQuizData.question
-    optionA.innerText = currentQuizData.a
-    optionB.innerText = currentQuizData.b
-    optionC.innerText = currentQuizData.c
-    optionD.innerText = currentQuizData.d
 }
 
 loadQuestion()
 
-function deselectAnswer() {
-    if (answerEl.checked !== correct) {
-        return false;
-    }
-}
-
-function getSelected() {
-    
-}
