@@ -41,7 +41,6 @@ main{
 }
 
 .hide {
-    display: none;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;

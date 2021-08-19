@@ -2,10 +2,6 @@
 var quiz = document.getElementById("quiz");
 var answerEl = document.querySelectorAll(".answer");
 var questionEl = document.getElementById("question");
-// var optionA = document.getElementById("option-a");
-// var optionB = document.getElementById("option-b");
-// var optionC = document.getElementById("option-c");
-// var optionD = document.getElementById("option-d");
 var submitBtn = document.getElementById("submit");
 var starBtnEl = document.getElementById("startBtn")
 var counterEl = document.getElementById("counter");
@@ -43,7 +39,7 @@ var quizDataObj = [
         correct: "1995",
     }
 ]
-
+console.log(quizDataObj);
 // To DO:
 // create timer function
 function countdown() {
@@ -62,16 +58,19 @@ function startQuiz() {
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
     openerEL.setAttribute("style", "display:none;");
-    hideEl.removeAttribute("style","display:hide;");
+    hideEl.removeAttribute("style","display:none;");
     loadQuestion;
 }
-starBtnEl.addEventListener("click", startQuiz)
+
+starBtnEl.addEventListener("click", startQuiz);
 
 function loadQuestion(index) {
-    startQuiz;
-    var quoteEl = 
+    for(var i = 0;i < index.length; i++ ) {
+        
+    }
     
 }
+quizDataObj.forEach(loadQuestion);
 // create a function for event listener clicking a question
 function nextQuestion() {
     
