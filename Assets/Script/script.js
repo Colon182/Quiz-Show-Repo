@@ -7,35 +7,36 @@ var starBtnEl = document.getElementById("startBtn")
 var counterEl = document.getElementById("counter");
 var openerEL = document.querySelector(".quiz-opener");
 var hideEl = document.querySelector(".hide");
+var qchoicesEl =document.getElementById("qchoices");
 // variables to control quiz state
-var  questionIndex = 0
+var questionIndex = 0
 var time = 75
 var counterId;
 // object to store questions, options, and answers
 var quizDataObj = [
     {
         quote: "What does CSS stand for?",
-        choices: ["Coding Style Statistics","Cascading Style Sheets","Coding Style Sheets","Cascading Stat Sheets"],
+        choices: ["Coding Style Statistics", "Cascading Style Sheets", "Coding Style Sheets", "Cascading Stat Sheets"],
         correct: "Cascading Style Sheets",
     },
     {
         quote: "What does HTML stand for?",
-        choices: ["Hypertext Multi Language", "History of Translating Markup Languages","Hypertext Markup Language","Hypertext Markup Linguistics",],
+        choices: ["Hypertext Multi Language", "History of Translating Markup Languages", "Hypertext Markup Language", "Hypertext Markup Linguistics",],
         correct: "Hypertext Markup Language",
     },
     {
         quote: "How do you call an id in CSS?",
-        choices: ["#",".","%","*"],
+        choices: ["#", ".", "%", "*"],
         correct: "#",
     },
     {
         quote: "How do you call a class in CSS?",
-        choices: ["#","%",".","!"],
+        choices: ["#", "%", ".", "!"],
         correct: ".",
     },
     {
         quote: "What year was javascript created?",
-        choices: ["1998","2001","1979","1995"],
+        choices: ["1998", "2001", "1979", "1995"],
         correct: "1995",
     }
 ]
@@ -58,27 +59,50 @@ function startQuiz() {
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
     openerEL.setAttribute("style", "display:none;");
-    hideEl.removeAttribute("style","display:none;");
+    hideEl.removeAttribute("style", "display:none;");
     loadQuestion;
 }
 
-starBtnEl.addEventListener("click", startQuiz);
+starBtnEl.addEventListener("click", startQuiz);-
 
-function loadQuestion(index) {
-    for(var i = 0;i < index.length; i++ ) {
-        
-    }
+function loadQuestion() {
+    // variable to store the question displyed on screen
+    var currentQuestion = quizDataObj[questionIndex];
+    // update h2 element with current question
+    questionEl.textContent = currentQuestion.quote;
+    // forEach to loop through array of choices 
+    currentQuestion.choices.forEach(function (choice, index) {
+        // creates buttons for question choices
+        var choiceBtn = document.createElement("button");
+        // creates id for created buttons
+        choiceBtn.setAttribute("id", "choice-style");
+        // adds choice string to created buttons
+        choiceBtn.setAttribute("value", choice);
+        choiceBtn.textContent = index + 1 + ": " + choice;
+    })
     
 }
 quizDataObj.forEach(loadQuestion);
 // create a function for event listener clicking a question
-function nextQuestion() {
-    
+function clickQuestion() {
+    var feedbackEl = document.getElementById("feedback");
+
+    if (this.value !== quizDataObj[questionIndex].correct) {
+        time -= 10;
+        if(time < 0){
+            time = 0
+            endQuiz;
+        }
+        feedbackEl.textContent = "Wrong answer! You lose 10 seconds!";
+
+    }
+    else{}
+
 }
 // create end quiz function
-function endQuiz() {}
+function endQuiz() { }
 // create function for high scores and store to local storage
-function scoreData() {}
-// function to select quiz questions and answers 
+function scoreData() { }
+// function to select quiz questions and answers
 
 

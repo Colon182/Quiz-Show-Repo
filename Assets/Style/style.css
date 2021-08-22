@@ -40,6 +40,20 @@ main{
     font-size: larger;
 }
 
+.choice-style{
+    background-color: rgb(245, 59, 59);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 15px;
+    font-size: larger;
+    
+    
+}
+
 .hide {
     align-items: center;
     justify-content: center;
