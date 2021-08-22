@@ -9,6 +9,7 @@ var openerEL = document.querySelector(".quiz-opener");
 var hideEl = document.querySelector(".hide");
 var qchoicesEl = document.getElementById("qchoices");
 var scoreEl = document.getElementById("score");
+var recorderEl = document.querySelector(".recorder");
 // variables to control quiz state
 var questionIndex = 0
 var time = 75
@@ -107,23 +108,27 @@ function clickQuestion() {
         feedbackElw.textContent = "Wrong Answer! You lose 10 seconds!";
 
     }
-    else if (this.value === quizDataObj[questionIndex].correct) {
+    else {
         var feedbackElr = document.getElementById("feedback");
         feedbackElr.textContent = "Correct Answer!";
         userScore++;
     }
+    
+    questionIndex++;
 
     if (questionIndex === quizDataObj.length) {
         endQuiz;
     }
     else {
-        loadQuestion(questionIndex++);
+        loadQuestion();
     }
 
 }
 // create end quiz function
 function endQuiz() {
-    
+    hideEl.setAttribute("style", "display:none;");
+    recorderEl.removeAttribute("style", "display:none;");
+    clearInterval(counterId);
 }
 // create function for high scores and store to local storage
 function scoreData() {
