@@ -111,7 +111,7 @@ function clickQuestion() {
     else {
         var feedbackElr = document.getElementById("feedback");
         feedbackElr.textContent = "Correct Answer!";
-        userScore++;
+        userScore
     }
     
     questionIndex++;
