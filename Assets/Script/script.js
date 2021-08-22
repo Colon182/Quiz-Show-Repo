@@ -12,6 +12,7 @@ var qchoicesEl = document.getElementById("qchoices");
 var questionIndex = 0
 var time = 75
 var counterId;
+var scoreData = 0;
 // object to store questions, options, and answers
 var quizDataObj = [
     {
@@ -73,13 +74,16 @@ function loadQuestion() {
     // forEach to loop through array of choices 
     currentQuestion.choices.forEach(function (choice, index) {
         // creates buttons for question choices
+        var buttons = document.createElement("li")
         var choiceBtn = document.createElement("button");
-        choiceBtn.appendChild(qchoicesEl);
         // creates id for created buttons
         choiceBtn.setAttribute("id", "choice-style");
-        // adds choice string to created buttons
+        // adds choices string to created buttons
         choiceBtn.setAttribute("value", choice);
         choiceBtn.textContent = index + 1 + ": " + choice;
+
+        questionEl.appendChild(buttons);
+        buttons.appendChild(choiceBtn);
     })
     
 }
@@ -88,20 +92,23 @@ function loadQuestion() {
 quizDataObj.forEach(loadQuestion);
 // create a function for event listener clicking a question
 function clickQuestion() {
-    var feedbackEl = document.getElementById("feedback");
-
+    
     if (this.value !== quizDataObj[questionIndex].correct) {
         time -= 10;
         if(time < 0){
             time = 0
             endQuiz;
         }
-        feedbackEl.textContent = "Wrong answer! You lose 10 seconds!";
+
+        var feedbackEl = document.getElementById("feedback");
+        feedbackEl.textContent = "Wrong Answer! You lose 10 seconds!";
 
     }
     else{
         feedbackEl.textContent = "Correct Answer!"
     }
+
+    if(){}
 
 }
 // create end quiz function

@@ -10,6 +10,10 @@ h1 {
     text-align: center;    
 }
 
+h2 {
+    text-align: center;    
+}
+
 main{
     height: 50vh;
     display: flex;
@@ -40,18 +44,16 @@ main{
     font-size: larger;
 }
 
-.choice-style{
+#choice-style{
     background-color: rgb(245, 59, 59);
     border: none;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     cursor: pointer;
     height: 30px;
     border-radius: 15px;
-    font-size: larger;
-    
-    
+    font-size: large;
 }
 
 .hide {
@@ -67,7 +69,8 @@ main{
 }
 
 li{
-    list-style-type: upper-alpha;
+    list-style: none;
+    padding: 10px;
 
 }
 
