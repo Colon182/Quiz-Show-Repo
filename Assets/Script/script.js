@@ -7,7 +7,7 @@ var starBtnEl = document.getElementById("startBtn")
 var counterEl = document.getElementById("counter");
 var openerEL = document.querySelector(".quiz-opener");
 var hideEl = document.querySelector(".hide");
-var qchoicesEl =document.getElementById("qchoices");
+var qchoicesEl = document.getElementById("qchoices");
 // variables to control quiz state
 var questionIndex = 0
 var time = 75
@@ -60,10 +60,10 @@ function startQuiz() {
     counterEl.textContent = time;
     openerEL.setAttribute("style", "display:none;");
     hideEl.removeAttribute("style", "display:none;");
-    loadQuestion;
+    loadQuestion();    
 }
 
-starBtnEl.addEventListener("click", startQuiz);-
+starBtnEl.addEventListener("click", startQuiz);
 
 function loadQuestion() {
     // variable to store the question displyed on screen
@@ -74,6 +74,7 @@ function loadQuestion() {
     currentQuestion.choices.forEach(function (choice, index) {
         // creates buttons for question choices
         var choiceBtn = document.createElement("button");
+        choiceBtn.appendChild(qchoicesEl);
         // creates id for created buttons
         choiceBtn.setAttribute("id", "choice-style");
         // adds choice string to created buttons
@@ -82,6 +83,8 @@ function loadQuestion() {
     })
     
 }
+
+
 quizDataObj.forEach(loadQuestion);
 // create a function for event listener clicking a question
 function clickQuestion() {
@@ -96,7 +99,9 @@ function clickQuestion() {
         feedbackEl.textContent = "Wrong answer! You lose 10 seconds!";
 
     }
-    else{}
+    else{
+        feedbackEl.textContent = "Correct Answer!"
+    }
 
 }
 // create end quiz function
