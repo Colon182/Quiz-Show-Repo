@@ -8,11 +8,12 @@ var counterEl = document.getElementById("counter");
 var openerEL = document.querySelector(".quiz-opener");
 var hideEl = document.querySelector(".hide");
 var qchoicesEl = document.getElementById("qchoices");
+var scoreEl = document.getElementById("score");
 // variables to control quiz state
 var questionIndex = 0
 var time = 75
 var counterId;
-var scoreData = 0;
+var userScore = 0;
 // object to store questions, options, and answers
 var quizDataObj = [
     {
@@ -59,9 +60,10 @@ function startQuiz() {
     // start timer
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
+    scoreEl.textContent = "Score: " + userScore + "/5";
     openerEL.setAttribute("style", "display:none;");
     hideEl.removeAttribute("style", "display:none;");
-    loadQuestion();    
+    loadQuestion();
 }
 
 starBtnEl.addEventListener("click", startQuiz);
@@ -80,41 +82,52 @@ function loadQuestion() {
         choiceBtn.setAttribute("id", "choice-style");
         // adds choices string to created buttons
         choiceBtn.setAttribute("value", choice);
+        choiceBtn.onclick = clickQuestion;
         choiceBtn.textContent = index + 1 + ": " + choice;
-
         questionEl.appendChild(buttons);
         buttons.appendChild(choiceBtn);
+        
     })
-    
+    clickQuestion;
 }
 
 
 quizDataObj.forEach(loadQuestion);
 // create a function for event listener clicking a question
 function clickQuestion() {
-    
+
     if (this.value !== quizDataObj[questionIndex].correct) {
         time -= 10;
-        if(time < 0){
+        if (time < 0) {
             time = 0
             endQuiz;
         }
 
-        var feedbackEl = document.getElementById("feedback");
-        feedbackEl.textContent = "Wrong Answer! You lose 10 seconds!";
+        var feedbackElw = document.getElementById("feedback");
+        feedbackElw.textContent = "Wrong Answer! You lose 10 seconds!";
 
     }
-    else{
-        feedbackEl.textContent = "Correct Answer!"
+    else if (this.value === quizDataObj[questionIndex].correct) {
+        var feedbackElr = document.getElementById("feedback");
+        feedbackElr.textContent = "Correct Answer!";
+        userScore++;
     }
 
-    if(){}
+    if (questionIndex === quizDataObj.length) {
+        endQuiz;
+    }
+    else {
+        loadQuestion(questionIndex++);
+    }
 
 }
 // create end quiz function
-function endQuiz() { }
+function endQuiz() {
+    
+}
 // create function for high scores and store to local storage
-function scoreData() { }
-// function to select quiz questions and answers
+function scoreData() {
+
+}
 
 
