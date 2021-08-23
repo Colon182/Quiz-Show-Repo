@@ -137,10 +137,10 @@ function endQuiz() {
 }
 // create function for high scores and store to local storage
 function scoreData() {
-    localStorage.setItem("Score", userScore);
+    localStorage.setItem("Score", JSON.stringify(userScore));
     var inputEl = document.querySelector("input");
     var name = inputEl.value
-    localStorage.setItem("Name", name)
+    localStorage.setItem("Name", JSON.stringify(name));
 }
 
 
