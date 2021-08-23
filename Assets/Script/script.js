@@ -56,12 +56,12 @@ function countdown() {
 }
 startQuiz;
 console.log(time);
+console.log(userScore);
 // create start quiz function
 function startQuiz() {
     // start timer
     counterId = setInterval(countdown, 1000)
     counterEl.textContent = time;
-    scoreEl.textContent = "Score: " + userScore + "/5";
     openerEL.setAttribute("style", "display:none;");
     hideEl.removeAttribute("style", "display:none;");
     loadQuestion();
@@ -111,13 +111,16 @@ function clickQuestion() {
     else {
         var feedbackElr = document.getElementById("feedback");
         feedbackElr.textContent = "Correct Answer!";
-        userScore
+        userScore++;
+        console.log(userScore);
     }
     
     questionIndex++;
+    console.log(questionIndex);
 
-    if (questionIndex === quizDataObj.length) {
-        endQuiz;
+    if (questionIndex == quizDataObj.length) {
+        var choiceBtnEl = document.getElementById("choice-style");
+        choiceBtnEl.onclick = endQuiz;
     }
     else {
         loadQuestion();
@@ -129,10 +132,15 @@ function endQuiz() {
     hideEl.setAttribute("style", "display:none;");
     recorderEl.removeAttribute("style", "display:none;");
     clearInterval(counterId);
+    var submitBtnEl = document.getElementById("submitBtn");
+    submitBtnEl.onclick = scoreData;
 }
 // create function for high scores and store to local storage
 function scoreData() {
-
+    localStorage.setItem("Score", userScore);
+    var inputEl = document.querySelector("input");
+    var name = inputEl.value
+    localStorage.setItem("Name", name)
 }
 
 
