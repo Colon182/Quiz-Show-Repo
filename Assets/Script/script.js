@@ -8,7 +8,7 @@ var counterEl = document.getElementById("counter");
 var openerEL = document.querySelector(".quiz-opener");
 var hideEl = document.querySelector(".hide");
 var qchoicesEl = document.getElementById("qchoices");
-var scoreEl = document.getElementById("score");
+var endEl = document.getElementById("end");
 var recorderEl = document.querySelector(".recorder");
 // variables to control quiz state
 var questionIndex = 0
@@ -64,7 +64,7 @@ function startQuiz() {
     counterEl.textContent = time;
     openerEL.setAttribute("style", "display:none;");
     hideEl.removeAttribute("style", "display:none;");
-    loadQuestion();
+    endEl.onclick = endQuiz;
 }
 
 starBtnEl.addEventListener("click", startQuiz);
@@ -80,14 +80,14 @@ function loadQuestion() {
         var buttons = document.createElement("li")
         var choiceBtn = document.createElement("button");
         // creates id for created buttons
-        choiceBtn.setAttribute("id", "choice-style");
+        choiceBtn.setAttribute("class", "choice-style");
         // adds choices string to created buttons
         choiceBtn.setAttribute("value", choice);
         choiceBtn.onclick = clickQuestion;
         choiceBtn.textContent = index + 1 + ": " + choice;
         questionEl.appendChild(buttons);
         buttons.appendChild(choiceBtn);
-        
+
     })
     clickQuestion;
 }
@@ -114,13 +114,15 @@ function clickQuestion() {
         userScore++;
         console.log(userScore);
     }
-    
+
     questionIndex++;
     console.log(questionIndex);
 
-    if (questionIndex == quizDataObj.length) {
-        var choiceBtnEl = document.getElementById("choice-style");
-        choiceBtnEl.onclick = endQuiz;
+    if (questionIndex === quizDataObj.length) {
+        // var endQuizBtn = document.createElement("button");
+        // endQuizBtn.setAttribute("id", "end-button");
+        // var endQuizBtnEl = document.getElementById("end-button");
+        // endQuizBtnEl.onclick = endQuiz;
     }
     else {
         loadQuestion();
@@ -142,5 +144,6 @@ function scoreData() {
     var name = inputEl.value
     localStorage.setItem("Name", JSON.stringify(name));
 }
+
 
 
